@@ -56,12 +56,12 @@ module "verified_access_eni_endpoint" {
 
   application_name       = "user-manager"
   application_domain     = "user-manger.abc.com"
-  domain_certificate_arn = "arn:aws:acm:us-east-1:12345678:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
+  domain_certificate_arn = "arn:aws:acm:ap-southeast-1:12345678:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
   endpoint_domain_prefix = "user-manger"
-  security_group_ids     = ["sg-090fee8d4fc2f5093"]
+  security_group_ids     = ["sg-090fee8d4dd093"]
 
   endpoint_type        = "network-interface"
-  network_interface_id = "eni-0ecf3d2c29a41f206"
+  network_interface_id = "eni-0ecf3d2c29ad06"
   port                 = 443
   protocol             = "https"
 
