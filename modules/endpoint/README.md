@@ -27,8 +27,8 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_application_domain"></a> [application\_domain](#input\_application\_domain) | The DNS name for users to reach your application. | `string` | n/a | yes |
-| <a name="input_application_name"></a> [application\_name](#input\_application\_name) | The application name | `string` | n/a | yes |
 | <a name="input_attachment_type"></a> [attachment\_type](#input\_attachment\_type) | The type of attachment. Currently, only vpc is supported. | `string` | `"vpc"` | no |
+| <a name="input_description"></a> [description](#input\_description) | The description for verified application | `string` | `null` | no |
 | <a name="input_domain_certificate_arn"></a> [domain\_certificate\_arn](#input\_domain\_certificate\_arn) | The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint | `string` | n/a | yes |
 | <a name="input_endpoint_domain_prefix"></a> [endpoint\_domain\_prefix](#input\_endpoint\_domain\_prefix) | A custom identifier that is prepended to the DNS name that is generated for the endpoint | `string` | n/a | yes |
 | <a name="input_endpoint_type"></a> [endpoint\_type](#input\_endpoint\_type) | The type of Verified Access endpoint to create. Currently load-balancer or network-interface are supported. | `string` | n/a | yes |

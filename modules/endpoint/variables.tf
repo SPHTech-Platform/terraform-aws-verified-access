@@ -1,6 +1,7 @@
-variable "application_name" {
-  description = "The application name"
+variable "description" {
+  description = "The description for verified application"
   type        = string
+  default     = null
 }
 
 variable "verified_access_group_id" {

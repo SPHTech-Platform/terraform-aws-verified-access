@@ -1,5 +1,5 @@
 resource "aws_verifiedaccess_endpoint" "this" {
-  description            = "Verfied access endpoint for ${var.application_name}"
+  description            = var.description
   application_domain     = var.application_domain
   domain_certificate_arn = var.domain_certificate_arn
 

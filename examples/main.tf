@@ -54,7 +54,7 @@ module "verified_access_eni_endpoint" {
 
   verified_access_group_id = module.verified_access_iam_identity_center.verifiedaccess_group_id
 
-  application_name       = "user-manager"
+  description            = "user-manager"
   application_domain     = "user-manger.abc.com"
   domain_certificate_arn = "arn:aws:acm:ap-southeast-1:12345678:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
   endpoint_domain_prefix = "user-manger"
@@ -76,7 +76,7 @@ module "verified_access_elb_endpoint" {
 
   verified_access_group_id = module.verified_access_oidc.verifiedaccess_group_id
 
-  application_name = "student-portal"
+  description = "student-portal"
 
   application_domain     = "student-portal.abc.com"
   domain_certificate_arn = "arn:aws:acm:ap-southeast-1:123789456:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
