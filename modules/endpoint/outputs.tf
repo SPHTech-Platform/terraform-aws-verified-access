@@ -1,4 +1,4 @@
-output "ednpoint_id" {
+output "endpoint_id" {
   description = "The ID of the AWS Verified Access endpoint."
   value       = aws_verifiedaccess_endpoint.this.id
 }

@@ -86,7 +86,7 @@ module "verified_access_elb_endpoint" {
   endpoint_type     = "load-balancer"
   load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:793209430381:loadbalancer/app/student-portal/db28c751e6407a7e"
   port              = 443
-  protocol          = "http"
+  protocol          = "https"
   subnet_ids = [
     "subnet-05784f70e50ee83b4",
     "subnet-08a8ce56967a027df"

@@ -3,8 +3,8 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~>5.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.24 |
 
 ## Providers
 
@@ -45,6 +45,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ednpoint_id"></a> [ednpoint\_id](#output\_ednpoint\_id) | The ID of the AWS Verified Access endpoint. |
 | <a name="output_endpoint_domain"></a> [endpoint\_domain](#output\_endpoint\_domain) | A DNS name that is generated for the endpoint. |
+| <a name="output_endpoint_id"></a> [endpoint\_id](#output\_endpoint\_id) | The ID of the AWS Verified Access endpoint. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
