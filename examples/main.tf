@@ -58,7 +58,7 @@ module "verified_access_eni_endpoint" {
   application_domain     = "user-manger.abc.com"
   domain_certificate_arn = "arn:aws:acm:us-east-1:12345678:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
   endpoint_domain_prefix = "user-manger"
-  security_group_ids     = ["sg-0a7fee8d4fc2f5093"]
+  security_group_ids     = ["sg-090fee8d4fc2f5093"]
 
   endpoint_type        = "network-interface"
   network_interface_id = "eni-0ecf3d2c29a41f206"
@@ -79,17 +79,17 @@ module "verified_access_elb_endpoint" {
   application_name = "student-portal"
 
   application_domain     = "student-portal.abc.com"
-  domain_certificate_arn = "arn:aws:acm:us-east-1:123789456:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
+  domain_certificate_arn = "arn:aws:acm:ap-southeast-1:123789456:certificate/a6e8cc16-b740-4e15-8a3a-a3f643589a36"
   endpoint_domain_prefix = "student-portal"
-  security_group_ids     = ["sg-0305d4314a03458da"]
+  security_group_ids     = ["sg-0305d43dd3458dda"]
 
   endpoint_type     = "load-balancer"
-  load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-1:793209430381:loadbalancer/app/student-portal/db28c751e6407a7e"
+  load_balancer_arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789:loadbalancer/app/student-portal/db28c751e6407a7e"
   port              = 443
   protocol          = "https"
   subnet_ids = [
-    "subnet-05784f70e50ee83b4",
-    "subnet-08a8ce56967a027df"
+    "subnet-0589f70e50ee83b4",
+    "subnet-080006967a027df"
   ]
 
   tags = {
