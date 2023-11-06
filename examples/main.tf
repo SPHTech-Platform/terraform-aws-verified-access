@@ -52,7 +52,7 @@ module "verified_access_oidc" {
 module "verified_access_eni_endpoint" {
   source = "../modules/endpoint"
 
-  verified_access_group_id = module.verified_access_iam_identity_center
+  verified_access_group_id = module.verified_access_iam_identity_center.verifiedaccess_group_id
 
   application_name       = "user-manager"
   application_domain     = "user-manger.abc.com"
