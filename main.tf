@@ -35,6 +35,7 @@ resource "aws_verifiedaccess_group" "this" {
   policy_document            = var.group_policy_document != null ? var.group_policy_document : null
   tags                       = var.tags
 
+  # Must attach a TrustProvider to Instance before you can create a Group
   depends_on = [
     aws_verifiedaccess_instance_trust_provider_attachment.this
   ]
