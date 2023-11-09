@@ -54,10 +54,10 @@ module "verified_access_eni_endpoint" {
 
   verified_access_group_id = module.verified_access_iam_identity_center.verifiedaccess_group_id
 
-  description            = "user-manager"
-  application_domain     = "user-manger.my-domain.com"
+  description            = "example"
+  application_domain     = "example.my-domain.com"
   domain_certificate_arn = module.acm.acm_certificate_arn
-  endpoint_domain_prefix = "user-manger"
+  endpoint_domain_prefix = "example"
   security_group_ids     = [module.verified_access_sg.security_group_id]
 
   endpoint_type        = "network-interface"
@@ -78,13 +78,13 @@ module "verified_access_elb_endpoint" {
 
   description = "student-portal"
 
-  application_domain     = "student-portal.my-domain.com"
+  application_domain     = "example.my-domain.com"
   domain_certificate_arn = module.acm.acm_certificate_arn
-  endpoint_domain_prefix = "student-portal"
+  endpoint_domain_prefix = "example"
   security_group_ids     = [module.verified_access_sg.security_group_id]
 
   endpoint_type     = "load-balancer"
-  load_balancer_arn = "arn:aws:elasticloadbalancing:ap-southeast-1:123456789:loadbalancer/app/student-portal/db28c751e6407a7e"
+  load_balancer_arn = module.alb.arn
   port              = 443
   protocol          = "https"
   subnet_ids        = module.vpc.private_subnets
