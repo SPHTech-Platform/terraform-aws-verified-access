@@ -6,7 +6,7 @@ module "verified_access_iam_identity_center" {
   trust_provider_type      = "user"
   user_trust_provider_type = "iam-identity-center"
 
-  group_policy_document = <<EOT
+  group_policy_document = <<-EOT
     permit(principal, action, resource)
       when {
        context.IAM.user.email.address like "*@abc.com"
@@ -34,7 +34,7 @@ module "verified_access_oidc" {
   token_endpoint         = "https://dev-12345678.okta.com/oauth2/v1/token"
   user_info_endpoint     = "https://dev-12345678.okta.com/oauth2/v1/userinfo"
 
-  group_policy_document = <<EOT
+  group_policy_document = <<-EOT
     permit(principal, action, resource)
       when {
       context.http_request.http_method != "INVALID_METHOD"
@@ -66,7 +66,7 @@ module "verified_access_eni_endpoint" {
   protocol             = "https"
 
   tags = {
-    Name = "User manager endpoint"
+    Name = "Example verified access endpoint"
   }
 }
 
@@ -76,7 +76,7 @@ module "verified_access_elb_endpoint" {
 
   verified_access_group_id = module.verified_access_oidc.verifiedaccess_group_id
 
-  description = "student-portal"
+  description = "Example"
 
   application_domain     = "example.my-domain.com"
   domain_certificate_arn = module.acm.acm_certificate_arn
@@ -90,7 +90,7 @@ module "verified_access_elb_endpoint" {
   subnet_ids        = module.vpc.private_subnets
 
   tags = {
-    Name = "student-portal"
+    Name = "Example verified access endpoint"
   }
 }
 
