@@ -47,4 +47,5 @@ No modules.
 |------|-------------|
 | <a name="output_endpoint_domain"></a> [endpoint\_domain](#output\_endpoint\_domain) | A DNS name that is generated for the endpoint. |
 | <a name="output_endpoint_id"></a> [endpoint\_id](#output\_endpoint\_id) | The ID of the AWS Verified Access endpoint. |
+| <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | The ID of the AWS Verified Access instance. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
