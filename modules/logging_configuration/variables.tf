@@ -44,9 +44,9 @@ variable "s3_logs" {
     prefix       = string
   })
   default = {
-    enable       = false
-    bucket_name  = ""
-    prefix       = ""
+    enable      = false
+    bucket_name = ""
+    prefix      = ""
   }
 }
 
@@ -72,7 +72,7 @@ variable "create_cloudwatch_log_group" {
 variable "cloudwatch_log_group_name" {
   description = "The name of the CloudWatch Log Group for AWS Verified Access logging."
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "override_cloudwatch_log_group_name" {

@@ -32,7 +32,7 @@ resource "aws_verifiedaccess_instance_logging_configuration" "this" {
 
 }
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
-  count = var.create_cloudwatch_log_group ? 1 : 0
+  count             = var.create_cloudwatch_log_group ? 1 : 0
   name              = var.cloudwatch_log_group_name
   kms_key_id        = aws_kms_key.log_encryption_key.arn
   retention_in_days = var.log_retention_in_days
