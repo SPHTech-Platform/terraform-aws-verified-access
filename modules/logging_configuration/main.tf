@@ -31,6 +31,7 @@ resource "aws_verifiedaccess_instance_logging_configuration" "this" {
   verifiedaccess_instance_id = var.aws_verifiedaccess_instance
 
 }
+
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
   count             = var.create_cloudwatch_log_group ? 1 : 0
   name              = var.cloudwatch_log_group_name

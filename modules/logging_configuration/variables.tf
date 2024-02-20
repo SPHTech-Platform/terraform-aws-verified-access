@@ -1,6 +1,6 @@
 #Logging
 variable "enable_logging" {
-  description = "Enable or disable logging configurations entirely."
+  description = "Enable/disable logging config"
   type        = bool
   default     = false
 }
@@ -51,51 +51,50 @@ variable "s3_logs" {
 }
 
 variable "log_version" {
-  description = "Log version for Verified Access logs"
+  description = "Log version for AVA logs"
   type        = string
   default     = ""
 }
 
 variable "include_trust_context" {
-  description = "Include claims from trust providers in Verified Access logs"
+  description = "Trust providers in AVA logs"
   type        = bool
   default     = false
 }
 
 #Cloudwatch Log group
 variable "create_cloudwatch_log_group" {
-  description = "Whether to create a new CloudWatch Log Group, if false provide existing group"
+  description = "Enable/disable CloudWatch Log Group, if false provide existing group"
   type        = bool
   default     = true
 }
 
 variable "cloudwatch_log_group_name" {
-  description = "The name of the CloudWatch Log Group for AWS Verified Access logging."
+  description = "CW Log Group for AVA logging."
   type        = string
   default     = ""
 }
 
 variable "override_cloudwatch_log_group_name" {
   type        = string
-  description = "To use a different cloudwatch log group (optional)"
+  description = "Existing CW log group name (optional)"
   default     = ""
 }
 
-
 variable "log_retention_in_days" {
-  description = "The number of days to retain logs in the CloudWatch Log Group."
+  description = "Retain logs in the CW Log Group."
   type        = number
   default     = 90
 }
 
 variable "enable_kms_key_rotation" {
-  description = "Whether to enable automatic rotation of the KMS key used for encrypting CloudWatch logs."
+  description = "enable/disable automatic rotation of the KMS key"
   type        = bool
   default     = true
 }
 
 variable "kms_key_deletion_window_in_days" {
-  description = "The waiting period, in days, before the KMS key is deleted after it is scheduled for deletion."
+  description = "The wait period(days) before rotating"
   type        = number
   default     = 10
 }
