@@ -1,5 +1,6 @@
+# tflint-ignore: terraform_unused_declarations
 locals {
-  cloudwatch_log_group_name = var.override_cloudwatch_log_group_name != "" ? var.override_cloudwatch_log_group_name : var.cloudwatch_logs.log_group
+  cloudwatch_log_group_name = var.override_cloudwatch_log_group_name != "" ? var.override_cloudwatch_log_group_name : aws_cloudwatch_log_group.cloudwatch_log_group.arn
 }
 
 resource "aws_verifiedaccess_instance_logging_configuration" "this" {
@@ -9,7 +10,7 @@ resource "aws_verifiedaccess_instance_logging_configuration" "this" {
   access_logs {
     cloudwatch_logs {
       enabled   = var.cloudwatch_logs.enable
-      log_group = var.cloudwatch_logs.log_group
+      log_group = aws_cloudwatch_log_group.cloudwatch_log_group.arn
     }
 
     kinesis_data_firehose {
@@ -34,7 +35,7 @@ resource "aws_verifiedaccess_instance_logging_configuration" "this" {
 
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
   count             = var.create_cloudwatch_log_group ? 1 : 0
-  name              = var.cloudwatch_log_group_name
+  name              = "ava-default-log-group"
   kms_key_id        = aws_kms_key.log_encryption_key.arn
   retention_in_days = var.log_retention_in_days
 }

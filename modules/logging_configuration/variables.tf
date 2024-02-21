@@ -69,12 +69,6 @@ variable "create_cloudwatch_log_group" {
   default     = true
 }
 
-variable "cloudwatch_log_group_name" {
-  description = "CW Log Group for AVA logging."
-  type        = string
-  default     = ""
-}
-
 variable "override_cloudwatch_log_group_name" {
   type        = string
   description = "Existing CW log group name (optional)"
