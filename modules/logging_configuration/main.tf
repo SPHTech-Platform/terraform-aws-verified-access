@@ -28,6 +28,7 @@ resource "aws_verifiedaccess_instance_logging_configuration" "this" {
 
 }
 
+#checkov:skip=CKV_AWS_338:Ensure CloudWatch log groups retains logs for at least 1 year
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
   count             = var.create_cloudwatch_log_group && var.enable_logging ? 1 : 0
   name              = var.cloudwatch_log_group_name
