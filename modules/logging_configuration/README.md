@@ -20,17 +20,22 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_cloudwatch_log_group.cloudwatch_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_kms_alias.key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias) | resource |
 | [aws_kms_key.log_encryption_key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) | resource |
 | [aws_verifiedaccess_instance_logging_configuration.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/verifiedaccess_instance_logging_configuration) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy_document.cloudwatch_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_alias"></a> [alias](#input\_alias) | Alias for kms key | `string` | `"alias/ava/loggroup"` | no |
 | <a name="input_aws_verifiedaccess_instance"></a> [aws\_verifiedaccess\_instance](#input\_aws\_verifiedaccess\_instance) | Verified access Instance to be associated with logging | `string` | `""` | no |
-| <a name="input_cloudwatch_log_group_name"></a> [cloudwatch\_log\_group\_name](#input\_cloudwatch\_log\_group\_name) | CW Log Group for AVA logging. | `string` | `""` | no |
+| <a name="input_cloudwatch_log_group_name"></a> [cloudwatch\_log\_group\_name](#input\_cloudwatch\_log\_group\_name) | New CW log group name if creating a new group | `string` | `"default-ava-cloudwatch-loggroup"` | no |
 | <a name="input_cloudwatch_logs"></a> [cloudwatch\_logs](#input\_cloudwatch\_logs) | Configuration for CloudWatch logs | <pre>object({<br>    enable    = bool<br>    log_group = string<br>  })</pre> | <pre>{<br>  "enable": false,<br>  "log_group": ""<br>}</pre> | no |
-| <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Enable/disable CloudWatch Log Group, if false provide existing group | `bool` | `true` | no |
+| <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Enable/disable CloudWatch Log Group, if false provide existing group | `bool` | `false` | no |
 | <a name="input_enable_kms_key_rotation"></a> [enable\_kms\_key\_rotation](#input\_enable\_kms\_key\_rotation) | enable/disable automatic rotation of the KMS key | `bool` | `true` | no |
 | <a name="input_enable_logging"></a> [enable\_logging](#input\_enable\_logging) | Enable/disable logging config | `bool` | `false` | no |
 | <a name="input_include_trust_context"></a> [include\_trust\_context](#input\_include\_trust\_context) | Trust providers in AVA logs | `bool` | `false` | no |

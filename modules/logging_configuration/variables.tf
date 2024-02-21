@@ -66,7 +66,13 @@ variable "include_trust_context" {
 variable "create_cloudwatch_log_group" {
   description = "Enable/disable CloudWatch Log Group, if false provide existing group"
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "cloudwatch_log_group_name" {
+  type        = string
+  description = "New CW log group name if creating a new group"
+  default     = "default-ava-cloudwatch-loggroup"
 }
 
 variable "override_cloudwatch_log_group_name" {
@@ -85,6 +91,12 @@ variable "enable_kms_key_rotation" {
   description = "enable/disable automatic rotation of the KMS key"
   type        = bool
   default     = true
+}
+
+variable "alias" {
+  description = "Alias for kms key"
+  type        = string
+  default     = "alias/ava/loggroup"
 }
 
 variable "kms_key_deletion_window_in_days" {

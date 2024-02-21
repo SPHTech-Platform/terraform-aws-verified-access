@@ -178,3 +178,11 @@ module "alb" {
     Project     = "Example"
   }
 }
+
+module "verified_access_logging" {
+  source = "../modules/logging_configuration"
+
+  enable_logging              = true
+  create_cloudwatch_log_group = true
+  aws_verifiedaccess_instance = module.verified_access_oidc.verifiedaccess_instance_id
+}

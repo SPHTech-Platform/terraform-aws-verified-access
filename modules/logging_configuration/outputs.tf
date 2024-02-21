@@ -4,6 +4,6 @@ output "kms_key_arn" {
 }
 
 output "cloudwatch_log_group_name" {
-  value       = aws_cloudwatch_log_group.cloudwatch_log_group[0].name
+  value       = var.cloudwatch_log_group_name
   description = "CloudWatch Log Group for AVA logging."
 }
