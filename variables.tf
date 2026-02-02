@@ -1,3 +1,9 @@
+variable "region" {
+  description = "Region where resources will be created."
+  type        = string
+  default     = null
+}
+
 #Trust Provider Settings
 variable "trust_provider_type" {
   description = "The type of trust provider can be either user or device-based."
