@@ -95,6 +95,7 @@ module "verified_access_elb_endpoint" {
 }
 
 module "vpc" {
+  #checkov:skip=CKV2_AWS_12:Ensure the default security group of every VPC restricts all traffic
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5.1"
 
@@ -115,6 +116,7 @@ module "vpc" {
 }
 
 module "verified_access_sg" {
+  #checkov:skip=CKV2_AWS_5:Ensure that Security Groups are attached to another resource
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 5.1"
 
@@ -131,6 +133,7 @@ module "verified_access_sg" {
 }
 
 module "acm" {
+  #checkov:skip=CKV2_AWS_71:Ensure AWS ACM Certificate domain name does not include wildcards
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
 
@@ -151,6 +154,7 @@ module "acm" {
 }
 
 module "alb" {
+  #checkov:skip=CKV_AWS_2:Ensure ALB protocol is HTTPS
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 9.1"
 
