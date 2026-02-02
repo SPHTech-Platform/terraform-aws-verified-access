@@ -1,4 +1,9 @@
+locals {
+  region = coalesce(var.region, data.aws_region.current.region)
+}
+
 resource "aws_verifiedaccess_endpoint" "this" {
+  region                 = local.region
   description            = var.description
   application_domain     = var.application_domain
   domain_certificate_arn = var.domain_certificate_arn

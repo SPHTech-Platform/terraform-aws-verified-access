@@ -1,0 +1,16 @@
+formatter: "markdown table"
+
+#recursive:
+#  enabled: true
+#  path: modules
+
+output:
+  file: "README.md"
+  mode: replace
+  template: |
+    # Terraform AWS Verified Access Endpoint
+
+    {{ .Content }}
+
+settings:
+  lockfile: false

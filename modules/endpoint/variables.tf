@@ -4,6 +4,12 @@ variable "description" {
   default     = null
 }
 
+variable "region" {
+  description = "Region where resources will be created."
+  type        = string
+  default     = null
+}
+
 variable "verified_access_group_id" {
   description = "The ID of the Verified Access group to associate the endpoint with."
   type        = string
@@ -36,7 +42,7 @@ variable "security_group_ids" {
 }
 
 variable "endpoint_type" {
-  description = "The type of Verified Access endpoint to create. Currently load-balancer or network-interface are supported. "
+  description = "The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported. "
   type        = string
 }
 
