@@ -1,6 +1,12 @@
 name: terraform-ci
 on:
   pull_request:
+permissions:
+  id-token: write
+  actions: read
+  checks: read
+  contents: read
+  pull-requests: write
 jobs:
   fmt-validate:
     needs: []
