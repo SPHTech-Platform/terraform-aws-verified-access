@@ -1,4 +1,4 @@
-name: Pre-commit auto-update
+name: Pre-commit and TF lint plugin auto-update
 
 on:
   # every sunday at midnight
@@ -16,22 +16,13 @@ permissions:
 jobs:
   auto-update:
     runs-on:
-      - self-hosted
-      - platform-eng-ent
+      - platform-eng-ent-v2-dual
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-python@v2
-
-      - name: Install pre-commit and run autoupdate
-        run: |
-          pip install pre-commit
-          pre-commit autoupdate
-
-      - uses: peter-evans/create-pull-request@v3
+      - uses: SPHTech-Platform/gha-pre-commit-autoupdate@main
+        name: Update pre-commit config automatically
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: update/pre-commit-hooks
-          title: Update pre-commit hooks
-          commit-message: "chore: update pre-commit hooks"
-          body: Update versions of pre-commit hooks to latest version.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: SPHTech-Platform/gha-tflint-aws-plugin-autoupdate@main
+        name: Update tflint aws plugin automatically
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

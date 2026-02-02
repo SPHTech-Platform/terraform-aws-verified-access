@@ -1,17 +1,17 @@
-# Terraform Modules Template
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+# Terraform AWS Verified Access
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.24 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.10 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.24.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6.0 |
 
 ## Modules
 
@@ -25,6 +25,7 @@ No modules.
 | [aws_verifiedaccess_instance.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/verifiedaccess_instance) | resource |
 | [aws_verifiedaccess_instance_trust_provider_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/verifiedaccess_instance_trust_provider_attachment) | resource |
 | [aws_verifiedaccess_trust_provider.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/verifiedaccess_trust_provider) | resource |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 
 ## Inputs
 
@@ -36,6 +37,7 @@ No modules.
 | <a name="input_group_policy_document"></a> [group\_policy\_document](#input\_group\_policy\_document) | he policy document that is associated with this resource. | `string` | `null` | no |
 | <a name="input_issuer"></a> [issuer](#input\_issuer) | The OIDC issuer. | `string` | `null` | no |
 | <a name="input_policy_reference_name"></a> [policy\_reference\_name](#input\_policy\_reference\_name) | The type of trust provider can be either user or device-based. | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | Region where resources will be created. | `string` | `null` | no |
 | <a name="input_scope"></a> [scope](#input\_scope) | OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Key-value mapping of resource tags. | `map(string)` | `{}` | no |
 | <a name="input_token_endpoint"></a> [token\_endpoint](#input\_token\_endpoint) | The OIDC token endpoint. | `string` | `null` | no |
@@ -47,5 +49,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | The ID of the Verified Access instance. |
+| <a name="output_verifiedaccess_group_arn"></a> [verifiedaccess\_group\_arn](#output\_verifiedaccess\_group\_arn) | The ID of the Verified Access group to associate the endpoint with. |
 | <a name="output_verifiedaccess_group_id"></a> [verifiedaccess\_group\_id](#output\_verifiedaccess\_group\_id) | The ID of the Verified Access group to associate the endpoint with. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

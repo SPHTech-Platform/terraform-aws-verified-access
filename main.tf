@@ -1,4 +1,9 @@
+locals {
+  region = coalesce(var.region, data.aws_region.current.region)
+}
+
 resource "aws_verifiedaccess_trust_provider" "this" {
+  region                   = local.region
   description              = "${var.trust_provider_type} based trust provider"
   policy_reference_name    = var.policy_reference_name
   trust_provider_type      = var.trust_provider_type
@@ -21,16 +26,19 @@ resource "aws_verifiedaccess_trust_provider" "this" {
 }
 
 resource "aws_verifiedaccess_instance" "this" {
+  region      = local.region
   description = "Verified access instance"
   tags        = var.tags
 }
 
 resource "aws_verifiedaccess_instance_trust_provider_attachment" "this" {
+  region                           = local.region
   verifiedaccess_instance_id       = aws_verifiedaccess_instance.this.id
   verifiedaccess_trust_provider_id = aws_verifiedaccess_trust_provider.this.id
 }
 
 resource "aws_verifiedaccess_group" "this" {
+  region                     = local.region
   verifiedaccess_instance_id = aws_verifiedaccess_instance.this.id
   policy_document            = var.group_policy_document != null ? var.group_policy_document : null
   tags                       = var.tags
