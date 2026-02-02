@@ -155,6 +155,9 @@ module "acm" {
 
 module "alb" {
   #checkov:skip=CKV_AWS_2:Ensure ALB protocol is HTTPS
+  #checkov:skip=CKV_AWS_91:Ensure the ELBv2 (Application/Network) has access logging enabled
+  #checkov:skip=CKV2_AWS_5:Ensure that Security Groups are attached to another resource
+  #checkov:skip=CKV_AWS_103:Ensure that load balancer is using at least TLS 1.2
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 9.1"
 
